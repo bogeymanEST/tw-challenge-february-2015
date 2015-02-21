@@ -17,6 +17,7 @@ public class Main {
     static Statement st;
     private static String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_";
     private static JsonTransformer transformer = new JsonTransformer();
+    private static String baseUrl= "http://localhost:4567";
 
 
     public static void main(String[] args) throws IOException {
@@ -35,9 +36,9 @@ public class Main {
 
         FreeMarkerEngine engine = new FreeMarkerEngine();
         Configuration config = new Configuration();
-        config.setDirectoryForTemplateLoading(new File(""));
+        config.setDirectoryForTemplateLoading(new File("template"));
         engine.setConfiguration(config);
-        jsonPost("/client/create", (request, response) -> {
+        jsonPost("/api/client/create", (request, response) -> {
             String stripeToken = request.queryParams("stripeToken");
             String stripeEmail = request.queryParams("stripeEmail");
             if (stripeEmail == null || stripeToken == null || stripeToken.isEmpty() || stripeEmail.isEmpty()) {
@@ -49,7 +50,7 @@ public class Main {
             st.executeUpdate(String.format("INSERT INTO client (client_id, delete_id, email, stripe_id) VALUES('%s', '%s', '%s', '%s')", clientId, deleteId, stripeToken, stripeEmail));
             return new ResponseClientCreate(clientId, deleteId, stripeEmail);
         });
-        jsonGet("/client/get", (request, response) -> {
+        jsonGet("/api/client/get", (request, response) -> {
             String clientId = request.queryParams("clientId");
             if(clientId == null)
                 return new ResponseError("Missing clientId");
@@ -59,7 +60,7 @@ public class Main {
             }
             return new ResponseClientGet(false);
         });
-        jsonPost("/recipient/create", (request, response) -> {
+        jsonPost("/api/recipient/create", (request, response) -> {
             String stripeToken = request.queryParams("stripeToken");
             String stripeEmail = request.queryParams("stripeEmail");
             if (stripeEmail == null || stripeToken == null || stripeToken.isEmpty() || stripeEmail.isEmpty()) {
@@ -69,6 +70,22 @@ public class Main {
 
             st.executeUpdate(String.format("INSERT INTO recipient (recipient_id, email, stripe_id) VALUES('%s', '%s', '%s')", clientId, stripeToken, stripeEmail));
             return new ResponseRecipientCreate(clientId, stripeEmail);
+        });
+        jsonPost("/api/payment/create", (request, response) -> {
+            String recipientId = request.queryParams("recipientId");
+            double price = Double.valueOf(request.queryParams("price"));
+            String paymentId = "p_" + randomString(25);
+            st.executeUpdate(String.format("INSERT INTO payment (recipient_id, price, payment_id) VALUES('%s', %s, '%s')", recipientId, price, paymentId));
+            String link = baseUrl + "/pay/" + paymentId;
+            return new ResponsePaymentCreate(paymentId, link);
+        });
+        jsonGet("/pay/:payment_id", (request, response) -> {
+            String paymentId = request.params("payment_id");
+            ResultSet rs = st.executeQuery(String.format("SELECT * FROM payment WHERE payment_id='%s", paymentId));
+            return "NEED TEMPLATE";
+        });
+        jsonPost("/api/pay/process", (request, response) -> {
+            return "TODO";
         });
     }
     private static String randomString(int len) {
