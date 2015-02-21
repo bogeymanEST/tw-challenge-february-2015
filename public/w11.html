@@ -2,12 +2,13 @@
 <html>
     <head>
 	    <title>Specify amount</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
         <p> SPECIFY AMOUNT TO BE CHARGED </p>
         <form action="demo_form.asp">
-            Amount: <br><input type="text" name="amount" value="0"><br>
-            <input type="submit" value="GENERATE QR CODE">
+            <label for="amount">Amount</label> <br><input class="form-control" type="text" name="amount" value="0"><br>
+            <input class="btn btn-success btn-block form-control" type="submit" value="GENERATE QR CODE">
         </form>
     </body>
 </html>
