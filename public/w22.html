@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Receipt</title>
+    </head>
+    <body>
+        <p>Receipt</p>
+        <p> To: ${company}</p>
+        <p> Amount: ${amount}</p>
+        <p> TRANSACTION COMPLETE </p>
+        <form action="confirm_address" method="get">
+            <input type="submit" value="CONFIRM"
+                name="Submit" id="to_confirm" />
+        </form>
+        <form action="cancel_aadress" method="get">
+            <input type="submit" value="CANCEL"
+                name="Submit" id="to_cancle" />
+        </form>
+    </body>
+</html>
