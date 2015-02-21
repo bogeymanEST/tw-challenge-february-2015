@@ -1,0 +1,185 @@
+@import "material-wfont.less";
+@import "ripples.less";
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+body > .container {
+  padding: 60px 15px 0;
+}
+
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+.footer-text {
+  text-align: center;
+}
+
+.topic-btn {
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white !important;
+  transition-property: background-color, box-shadow;
+  &.selected {
+    background-color: rgba(255, 0, 0, 0.5) !important;
+  }
+}
+
+.topic-container {
+  .topic-row {
+    padding: 10px 0;
+    .topic {
+      padding: 10px;
+      margin-bottom: 5px;
+      background-color: red;
+    }
+  }
+}
+
+.btn-go {
+  width: 100px;
+  margin: 0 -50px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+}
+
+.arrow(@visible-border) {
+  position: absolute;
+  content: " ";
+  height: 0;
+  width: 0;
+  pointer-events: none;
+  border: 10px solid rgba(66, 133, 244, 0);
+  border-@{visible-border}-color: @primary;
+}
+
+.arrow(@visible-border) when (@visible-border = top) {
+  margin-bottom: -20px;
+}
+
+.arrow(@visible-border) when (@visible-border = bottom) {
+  margin-top: -20px;
+}
+
+.arrow(@visible-border) when (@visible-border = left) {
+  margin-right: -20px;
+}
+
+.arrow(@visible-border) when (@visible-border = right) {
+  margin-left: -20px;
+}
+
+.arrow-top {
+  .arrow(bottom);
+  &.white {
+    border-bottom-color: white;
+  }
+}
+
+.arrow-bottom {
+  .arrow(top);
+}
+
+.arrow-left {
+  .arrow(right);
+}
+
+.arrow-right {
+  .arrow(left);
+}
+
+.answer-explanation > .arrow-left {
+  border-right-color: white;
+}
+
+.topic-info > .arrow-top, .answer-explanation > .arrow-top, .arrow-top.white {
+  border-bottom-color: white;
+}
+
+.topic-info .arrow-top {
+  //z-index: -1;
+}
+
+.assessment-answer-btn {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.answer-btn > .answer-btn-text {
+  font-size: 32px;
+  height: 100px;
+  line-height: 100px;
+  margin: auto;
+}
+.answer-row {
+  padding: 0;
+  .panel {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  background-color: #EEE;
+  transition: background-color 0.5s;
+  &.panel {
+    margin-bottom: 0;
+  }
+  &.success {
+    background-color: @lightgreen;
+  }
+  &.wrong {
+    background-color: lighten(@red, 2);
+  }
+  &.warning {
+    background-color: @warning;
+  }
+}
+.question-text, .assessment-topic, .training-topic {
+  font-size: 28px;
+  font-weight: bold;
+}
+.score-text {
+  padding-bottom: 25px;
+  font-weight: bold;
+  .score-percent {
+    font-size: 25pt;
+    padding-left: 10px;
+  }
+  .score-total {
+
+  }
+}
+body > .container {
+  padding-top: 20px;
+}
+body {
+  background-color: #f1f1f1;
+}
+.footer {
+  background-color: #e0e0e0;
+}

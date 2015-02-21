@@ -1,0 +1,129 @@
+html {
+  position: relative;
+  min-height: 100%; }
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px; }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5; }
+
+body > .container {
+  padding: 60px 15px 0; }
+
+.container .text-muted {
+  margin: 20px 0; }
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px; }
+
+code {
+  font-size: 80%; }
+
+.footer-text {
+  text-align: center; }
+
+.topic-btn {
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white !important;
+  transition-property: background-color, box-shadow; }
+  .topic-btn.selected {
+    background-color: rgba(255, 0, 0, 0.5) !important; }
+
+.topic-container .topic-row {
+  padding: 10px 0; }
+  .topic-container .topic-row .topic {
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: red; }
+
+.btn-go {
+  width: 100px;
+  margin: 0 -50px;
+  position: relative;
+  top: 50%;
+  left: 50%; }
+
+.arrow-top {
+  position: absolute;
+  content: " ";
+  height: 0;
+  width: 0;
+  pointer-events: none;
+  border: 10px solid rgba(66, 133, 244, 0);
+  border-bottom-color: #4285f4;
+  margin-top: -20px; }
+  .arrow-top.white {
+    border-bottom-color: white; }
+
+.arrow-bottom {
+  position: absolute;
+  content: " ";
+  height: 0;
+  width: 0;
+  pointer-events: none;
+  border: 10px solid rgba(66, 133, 244, 0);
+  border-top-color: #4285f4;
+  margin-bottom: -20px; }
+
+.arrow-left {
+  position: absolute;
+  content: " ";
+  height: 0;
+  width: 0;
+  pointer-events: none;
+  border: 10px solid rgba(66, 133, 244, 0);
+  border-right-color: #4285f4;
+  margin-left: -20px; }
+
+.arrow-right {
+  position: absolute;
+  content: " ";
+  height: 0;
+  width: 0;
+  pointer-events: none;
+  border: 10px solid rgba(66, 133, 244, 0);
+  border-left-color: #4285f4;
+  margin-right: -20px; }
+
+.answer-explanation > .arrow-left {
+  border-right-color: white; }
+
+.topic-info > .arrow-top, .answer-explanation > .arrow-top {
+  border-bottom-color: white; }
+
+.assessment-answer-btn {
+  display: inline-block;
+  vertical-align: middle; }
+
+.answer-btn {
+  height: 100px; }
+
+.answer-row {
+  padding: 20px 0;
+  background-color: #EEE;
+  transition: background-color 0.5s; }
+  .answer-row.panel {
+    margin-bottom: 0; }
+  .answer-row.success {
+    background-color: rgba(0, 255, 0, 0.2); }
+  .answer-row.danger {
+    background-color: rgba(255, 0, 0, 0.2); }
+  .answer-row.warning {
+    background-color: rgba(255, 255, 0, 0.2); }
+
+.score-text {
+  padding-bottom: 25px;
+  font-weight: bold; }
+  .score-text .score-percent {
+    font-size: 25pt;
+    padding-left: 10px; }
