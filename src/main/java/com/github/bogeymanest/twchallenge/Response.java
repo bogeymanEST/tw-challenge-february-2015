@@ -6,4 +6,8 @@ public abstract class Response {
     public Response(boolean success) {
         this.success = success;
     }
+
+    public Response() {
+        this(true);
+    }
 }
