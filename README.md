@@ -2,7 +2,6 @@
 # TransferWise Challenge 2015: 
 
 ![alt text](https://raw.githubusercontent.com/bogeymanEST/tw-challenge-february-2015/master/public/img/qcharge.png "qcharge")
-Project description:
 
 qcharge is a webapp designed to make daily transactions as smooth as possible on any device
 which features a camera for QR code reading. 
