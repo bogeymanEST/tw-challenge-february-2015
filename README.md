@@ -1,4 +1,4 @@
-[logo]: https://raw.githubusercontent.com/bogeymanEST/tw-challenge-february-2015/master/public/img/qcharge.png "qcharge"
+![alt text](https://raw.githubusercontent.com/bogeymanEST/tw-challenge-february-2015/master/public/img/qcharge.png "qcharge")
 # TransferWise Challenge 2015: qcharge
 Project description:
 qcharge is a webapp designed to make daily transactions as smooth as possible on any device
